@@ -47,7 +47,7 @@ const SignUp = () => {
           } else {
             navigate("/user/dashboard");
           }
-          toast.success("Registered successfully!");
+          toast.success("Registered successfully");
           setFormData(initialFormData);
         })
         .catch((err) => toast.error(err.message));
@@ -58,7 +58,7 @@ const SignUp = () => {
     <AuthLayout>
       <div className="lg:[w-100%] h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center">
         <h3 className="text-lg sm:text-xl font-semibold text-black text-center sm:text-left">Create an Account</h3>
-        <p className="text-xs text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center sm:text-left">
+        <p className="text-sm text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center sm:text-left">
           Join us today by entering your details below
         </p>
 
@@ -119,7 +119,7 @@ const SignUp = () => {
             )}
           </button>
         </form>
-        <p className="text-[12px] sm:text-[13px] text-slate-800 mt-3 text-center sm:text-left">
+        <p className="text-sm text-slate-800 mt-3 text-center sm:text-left">
           Already have an account?{" "}
           <Link className="underline text-primary" to="/login">
             Login

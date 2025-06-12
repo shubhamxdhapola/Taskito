@@ -46,7 +46,7 @@ const ViewTaskDetails = () => {
       }
     } catch (err) {
       console.log("Error in getting task details : ", err);
-      toast.error("Error in getting task details!");
+      toast.error("Error in getting task details");
       setLoading(false);
     } finally {
       setLoading(false);

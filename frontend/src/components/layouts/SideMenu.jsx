@@ -32,7 +32,7 @@ const SideMenu = ({ activeMenu }) => {
   }, [user]);
 
   return (
-    <div className="w-64 h-screen bg-white border-r border-gray-200/50 sticky top-[60px] z-20">
+    <div className="w-64 h-screen bg-white border-r border-b border-gray-200/50 sticky top-[61px] z-40">
       <div className="flex flex-col items-center justify-center mb-7 pt-5">
         <div className="relative">
           <img          

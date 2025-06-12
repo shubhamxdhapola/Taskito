@@ -6,17 +6,17 @@ const TaskStatusTabs = ({ tabs, activeTab, setActiveTab }) => {
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`relative px-3 md:px-4 py-2 text-sm font-medium  ${
+            className={`relative px-3 md:px-4 py-2 text-sm font-medium ${
               activeTab === tab.label
                 ? "text-primary"
                 : "text-gray-500 hover:text-gray-700"
             } cursor-pointer`}
             onClick={() => setActiveTab(tab.label)}
           >
-            <div className="flex flex-col gap-2 sm:flex-row sm:gap-0 items-center">
+            <div className="flex items-center">
               <span className="text-xs">{tab.label}</span>
               <span
-                className={`text-xs ml-0 sm:ml-2 px-2 py-0.5 rounded-full ${
+                className={`text-xs ml-2 px-2 py-0.5 rounded-full ${
                   activeTab === tab.label
                     ? "bg-primary text-white"
                     : "bg-gray-200/70 text-gray-600"

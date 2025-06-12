@@ -12,10 +12,10 @@ const Logout = () => {
     dispatch(logout())
       .unwrap()
       .then(() => {
-        toast.success("Logged out successfully!");
+        toast.success("Logged out successfully");
         navigate("/login");
       })
-      .catch(() => toast.error("Error in logging out!"));
+      .catch(() => toast.error("Error in logging out"));
   },[]);
 };
 

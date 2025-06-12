@@ -28,7 +28,7 @@ const MyTasks = () => {
       dispatch(getTasks(status));
     } catch (err) {
       console.error("Error in fetching tasks : ", err);
-      toast.error("Error in fetching tasks!");
+      toast.error("Error in fetching tasks");
     }
   };
 

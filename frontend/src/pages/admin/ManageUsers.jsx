@@ -33,7 +33,7 @@ const ManageUsers = () => {
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.log("Error in downloading report : ", error);
-      toast.error("Error in downloading report!");
+      toast.error("Error in downloading report");
     }
   };
 

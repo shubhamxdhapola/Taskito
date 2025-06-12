@@ -31,7 +31,7 @@ const ManageTasks = () => {
       dispatch(getTasks(status));
     } catch (err) {
       console.error("Error in fetching tasks : ", err);
-      toast.error("Error in fetching tasks!");
+      toast.error("Error in fetching tasks");
     }
   };
 
@@ -61,7 +61,7 @@ const ManageTasks = () => {
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.log("Error in downloading report : ", error);
-      toast.error("Error in downloading report!");
+      toast.error("Error in downloading report");
     }
   };
 

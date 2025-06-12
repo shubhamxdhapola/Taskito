@@ -46,7 +46,7 @@ const Navbar = ({ activeMenu }) => {
   };
 
   return (
-    <div className="flex gap-5 bg-white border border-b border-gray-200/50 backdrop-blur-[2px] py-3 px-4 sm:py-4 sm:px-6 sticky top-0 z-30 justify-between">
+    <div className="flex gap-5 bg-white border border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-4 sm:px-6 sticky top-0 z-50 justify-between">
       <div className="flex gap-4 items-center">
         <h2 className="text-lg font-medium text-black logo">Taskito</h2>
         <div

@@ -26,7 +26,7 @@ const ProfilePhotoSelector = ({ setFormData }) => {
             ...prevData,
             profileImageUrl
           }));
-          toast.success("Profile image updated!");
+          toast.success("Profile image updated");
         })
         .catch(() => toast.error("Error in uploading image"));
     }

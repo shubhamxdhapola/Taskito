@@ -1,19 +1,19 @@
 import { toast } from 'react-hot-toast'
 
 export const validateLoginForm = (email, password) => {
-    if (!email.trim()) return toast.error("Email is required!");
+    if (!email.trim()) return toast.error("Email is required");
     if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))
-        return toast.error("Invalid email format!");
-    if (!password.trim()) return toast.error("Password is required!");
+        return toast.error("Invalid email format");
+    if (!password.trim()) return toast.error("Password is required");
     return true;
 };
 
 export const validateSignUpForm = (name, email, password) => {
-    if (!name.trim()) return toast.error("Full name is required!")
-    if (!email.trim()) return toast.error("Email is required!");
+    if (!name.trim()) return toast.error("Full name is required")
+    if (!email.trim()) return toast.error("Email is required");
     if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))
-        return toast.error("Invalid email format!");
-    if (!password.trim()) return toast.error("Password is required!");
+        return toast.error("Invalid email format");
+    if (!password.trim()) return toast.error("Password is required");
     return true;
 };
 
@@ -40,11 +40,11 @@ export const addThousandsSeparator = (num) => {
 
 export const validateCreateTaskForm = (title, description, priority, dueDate, assignedTo, todoChecklist) => {
 
-    if (!title.trim()) return toast.error("Title is required!")
-    if (!description.trim()) return toast.error("Description is required!")
-    if (!priority.trim()) return toast.error("Priority is required!")
-    if (!dueDate.trim()) return toast.error("Due date is required!")
-    if (assignedTo.length === 0) return toast.error("Task not assigned to any member!")
-    if (todoChecklist.length === 0) return toast.error("Add atleast one todo task!")
+    if (!title.trim()) return toast.error("Title is required")
+    if (!description.trim()) return toast.error("Description is required")
+    if (!priority.trim()) return toast.error("Priority is required")
+    if (!dueDate.trim()) return toast.error("Due date is required")
+    if (assignedTo.length === 0) return toast.error("Task not assigned to any member")
+    if (todoChecklist.length === 0) return toast.error("Add atleast one todo task")
     return true
 }

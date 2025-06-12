@@ -38,7 +38,7 @@ const Login = () => {
           } else {
             navigate("/user/dashboard");
           }
-          toast.success("Logged in successfully!");
+          toast.success("Logged in successfully");
           setFormData(initialFormData);
         })
         .catch((err) => toast.error(err.message));
@@ -49,7 +49,7 @@ const Login = () => {
     <AuthLayout>
       <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center mx-auto">
         <h3 className="text-lg md:text-xl font-semibold text-black text-center sm:text-left">Welcome Back</h3>
-        <p className="text-xs text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center sm:text-left">
+        <p className="text-sm text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center sm:text-left">
           Please enter your details to login
         </p>
 
@@ -87,7 +87,7 @@ const Login = () => {
             )}
           </button>
         </form>
-        <p className="text-[12px] sm:text-[13px] text-slate-800 mt-3 text-center sm:text-left">
+        <p className="text-sm text-slate-800 mt-3 text-center sm:text-left">
           Don't have an account?{" "}
           <Link className="underline text-primary" to="/signup">
             SignUp

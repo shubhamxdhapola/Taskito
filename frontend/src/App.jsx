@@ -41,7 +41,7 @@ const App = () => {
   }
 
   return (
-    <div className="overflow-x-hidden">
+    <div>
       <Toaster />
       <Router>
         <Routes>
