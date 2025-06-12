@@ -1,0 +1,18 @@
+import { v2 as cloudinary } from 'cloudinary'
+import { CloudinaryStorage } from 'multer-storage-cloudinary'
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+})
+
+const taskitoStorage = new CloudinaryStorage({
+    cloudinary,
+    params : {
+        folder : 'Taskito_Storage',
+        allowedFormats: ['png', 'jpeg', 'jpg'],
+    }
+})
+
+export {cloudinary, taskitoStorage}
