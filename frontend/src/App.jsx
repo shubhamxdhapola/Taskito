@@ -17,7 +17,6 @@ import UserRoutes from "./routes/UserRoutes";
 import AuthRoutes from "./routes/AuthRoutes";
 import DefaultRoute from "./routes/DefaultRoute";
 import PageNotFound from "./pages/PageNotFound";
-import Logout from "./pages/auth/Logout";
 import LoadingScreen from "./components/ui/LoadingScreen";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -52,7 +51,6 @@ const App = () => {
           <Route element={<AuthRoutes />}>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/logout" element={<Logout />} />
           </Route>
 
           {/* Admin Routes */}

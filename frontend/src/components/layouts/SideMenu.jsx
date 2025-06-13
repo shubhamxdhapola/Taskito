@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { LuLogOut } from "react-icons/lu";
 import { logout } from "../../redux/slices/authSlice";
 import toast from "react-hot-toast";
+import { Loader2 } from "lucide-react";
 
 const SideMenu = ({ activeMenu }) => {
-  const { user } = useSelector((state) => state.auth);
+  const { user, loading } = useSelector((state) => state.auth);
   const [sideMenuData, setSideMenuData] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const SideMenu = ({ activeMenu }) => {
     <div className="w-64 h-[calc(100vh-62px)] bg-white border-r border-b border-gray-200/50 sticky top-[62px] -left-[1px] z-40 overflow-y-auto scrollbar-hide">
       <div className="flex flex-col items-center justify-center mb-7 pt-5">
         <div className="relative">
-          <img          
+          <img
             src={user?.profileImageUrl || ""}
             alt="profile-image"
             className="w-20 h-20 bg-slate-400 rounded-full object-cover"
@@ -70,8 +71,18 @@ const SideMenu = ({ activeMenu }) => {
       <button
         className="w-full flex items-center gap-4 text-[15px] -mt-1 py-3 px-6 mb-3 cursor-pointer min-[1100px]:hidden text-base-200"
         onClick={handleLogout}
+        disabled={loading}
       >
-        <LuLogOut className="text-xl" /> Logout
+        {loading ? (
+          <>
+            <Loader2 size={20} className="animate-spin" /> Logging out...
+          </>
+        ) : (
+          <>
+            {" "}
+            <LuLogOut /> Logout
+          </>
+        )}
       </button>
     </div>
   );
