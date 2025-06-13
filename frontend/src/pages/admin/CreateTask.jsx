@@ -204,7 +204,7 @@ const CreateTask = () => {
               )}
             </div>
             <div className="mt-4" >
-              <label className="text-xs font-medium text-slate-600">
+              <label className="text-sm font-medium text-slate-600">
                 Task Title
               </label>
               <input
@@ -216,7 +216,7 @@ const CreateTask = () => {
               />
             </div>
             <div className="mt-3" >
-              <label className="text-xs font-medium text-slate-600">
+              <label className="text-sm font-medium text-slate-600">
                 Description
               </label>
               <textarea
@@ -230,7 +230,7 @@ const CreateTask = () => {
 
             <div className="grid grid-cols-12 gap-4 mt-2">
               <div className="col-span-12 sm:col-span-4" >
-                <label className="text-xs font-medium text-slate-600">
+                <label className="text-sm font-medium text-slate-600">
                   Priority
                 </label>
                 <SelectDropdown
@@ -242,7 +242,7 @@ const CreateTask = () => {
               </div>
 
               <div className="col-span-12 sm:col-span-4"  >
-                <label className="text-xs font-medium text-slate-600">
+                <label className="text-sm font-medium text-slate-600">
                   Due Date
                 </label>
                 <input
@@ -256,7 +256,7 @@ const CreateTask = () => {
               </div>
 
               <div className="col-span-12 sm:col-span-3">
-                <label className="text-xs font-medium text-slate-600 whitespace-nowrap">
+                <label className="text-sm font-medium text-slate-600 whitespace-nowrap">
                   Assign To{" "}
                 </label>
                 <SelectedUsers
@@ -269,7 +269,7 @@ const CreateTask = () => {
             </div>
 
             <div className="mt-3" >
-              <label className="text-xs font-medium text-slate-600">
+              <label className="text-sm font-medium text-slate-600">
                 TODO CHECKLIST
               </label>
               <TodoListInput
@@ -279,7 +279,7 @@ const CreateTask = () => {
             </div>
 
             <div className="mt-3" >
-              <label className="text-xs font-medium text-slate-600">
+              <label className="text-sm font-medium text-slate-600">
                 Add Attachments
               </label>
               <AddAttachmentsInput

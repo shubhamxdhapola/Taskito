@@ -13,10 +13,10 @@ const TaskStatusTabs = ({ tabs, activeTab, setActiveTab }) => {
             } cursor-pointer`}
             onClick={() => setActiveTab(tab.label)}
           >
-            <div className="flex items-center">
-              <span className="text-xs">{tab.label}</span>
+            <div className="flex items-center flex-col-reverse sm:flex-row gap-2 sm:gap-0 mt-3 sm:mt-0">
+              <span className="text-xs ">{tab.label}</span>
               <span
-                className={`text-xs ml-2 px-2 py-0.5 rounded-full ${
+                className={`text-xs sm:ml-2 px-2 py-0.5 rounded-full ${
                   activeTab === tab.label
                     ? "bg-primary text-white"
                     : "bg-gray-200/70 text-gray-600"

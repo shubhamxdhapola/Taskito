@@ -55,7 +55,7 @@ const Navbar = ({ activeMenu }) => {
             openSideMenu ? "left-[20px]" : "-left-90"
           }`}
         >
-          <SideMenu activeMenu={activeMenu} />
+          <SideMenu activeMenu={activeMenu}  />
         </div>
       </div>
       <div className="flex">
