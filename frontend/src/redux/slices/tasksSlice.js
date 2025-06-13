@@ -63,7 +63,7 @@ export const updateTodoCheckList = createAsyncThunk(
                 API_PATHS.TASKS.UPDATE_TODO_CHECKLIST(taskId),
                 { todoChecklist }
             )
-            return response
+            return { ...response.data, status: response.status }
         } catch (error) {
             return rejectWithValue(error.response.data)
         }
@@ -76,8 +76,9 @@ const tasksSlice = createSlice({
         loading: false,
         error: null,
         allTasks: [],
-        updatingTodoList : false,
+        updatingTodoList: false,
         statusSummary: {},
+        deleteTaskLoading: false
     },
     reducers: {
 
@@ -96,13 +97,22 @@ const tasksSlice = createSlice({
                 state.loading = false
                 state.error = action.payload
             })
+            .addCase(createTask.pending, (state) => {
+                state.loading = true
+            })
             .addCase(createTask.fulfilled, (state, action) => {
+                state.loading = false
                 state.allTasks.push(action.payload)
             })
             .addCase(createTask.rejected, (state, action) => {
+                state.loading = false
                 state.error = action.payload
             })
+            .addCase(updateTask.pending, (state) => {
+                state.loading = true
+            })
             .addCase(updateTask.fulfilled, (state, action) => {
+                state.loading = false
                 const index = state.allTasks.findIndex(
                     (task) => task._id === action.payload._id
                 )
@@ -112,13 +122,19 @@ const tasksSlice = createSlice({
             })
             .addCase(updateTask.rejected, (state, action) => {
                 state.error = action.payload
+                state.loading = false
+            })
+            .addCase(deleteTask.pending, (state) => {
+                state.deleteTaskLoading = true
             })
             .addCase(deleteTask.fulfilled, (state, action) => {
+                state.deleteTaskLoading = false
                 state.allTasks = state.allTasks.filter(
                     (task) => task._id !== action.payload._id
                 )
             })
             .addCase(deleteTask.rejected, (state, action) => {
+                state.deleteTaskLoading = false
                 state.error = action.payload
             })
             .addCase(updateTodoCheckList.pending, (state) => {
@@ -127,7 +143,7 @@ const tasksSlice = createSlice({
             .addCase(updateTodoCheckList.fulfilled, (state, action) => {
                 state.updatingTodoList = false
                 const index = state.allTasks.findIndex(
-                    (task) => task._id === action.payload.data.task._id
+                    (task) => task._id === action.payload.task._id
                 )
                 if (index !== -1) {
                     state.allTasks[index] = action.payload

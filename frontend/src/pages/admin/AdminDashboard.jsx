@@ -16,7 +16,6 @@ import LoadingScreen from "../../components/ui/LoadingScreen";
 const COLORS = [`#8D51FF`, "#00BBDB", "#7BCE00"];
 
 const AdminDashboard = () => {
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
@@ -41,7 +40,6 @@ const AdminDashboard = () => {
   };
 
   const prepareChartData = (data) => {
-
     const taskDistribution = data?.taskDistribution || null;
     const taskPriorityLevels = data?.taskPriorityLevels || null;
 
@@ -128,9 +126,7 @@ const AdminDashboard = () => {
           <div data-aos="fade-left">
             <div className="card">
               <div className="flex items-center justify-between">
-                <h5 className="font-medium">
-                  Task Priority Levels
-                </h5>
+                <h5 className="font-medium">Task Priority Levels</h5>
               </div>
               <CustomBarChart data={barChartData} />
             </div>
@@ -140,12 +136,19 @@ const AdminDashboard = () => {
             <div className="card" data-aos="fade-right">
               <div className="flex items-center justify-between">
                 <h5 className="text-md sm:text-lg">Recent Tasks</h5>
-                <button className="card-btn" onClick={onSeeMore} >
+                <button className="card-btn" onClick={onSeeMore}>
                   See All <LuArrowRight className="text-base" />
                 </button>
               </div>
-
-              <TaskListTable tableData={dashboardData?.recentTasks || []} />
+              {dashboardData?.recentTasks.length > 0 ? (
+                <TaskListTable tableData={dashboardData?.recentTasks || []} />
+              ) : (
+                <div className="flex justify-center items-center col-span-12 h-[30dvh]">
+                  <p className="text-md font-medium text-gray-700">
+                    No tasks to show!
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

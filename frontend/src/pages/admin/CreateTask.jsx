@@ -16,7 +16,7 @@ import { validateCreateTaskForm } from "../../utils/helper";
 import { useEffect } from "react";
 import Modal from "../../components/Modal";
 import DeleteAlert from "../../components/DeleteAlert";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   createTask,
   deleteTask,
@@ -44,11 +44,11 @@ const CreateTask = () => {
   const [taskData, setTaskData] = useState(initialTaskData);
   const [currentTask, setCurrentTask] = useState(null);
   const [openDeleteAlert, setOpenDeleteAlert] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const { loading } = useSelector((state) => state.tasks);
 
   useEffect(() => {
     window.scroll(0, 0);
-  },[]);
+  }, []);
 
   const handleOnChange = (key, value) => {
     setTaskData((prevData) => ({
@@ -78,7 +78,7 @@ const CreateTask = () => {
 
   const handleCreateTask = async () => {
     try {
-      setLoading(true);
+      
       const todoList = taskData.todoChecklist?.map((item) => ({
         text: item,
         completed: false,
@@ -92,16 +92,13 @@ const CreateTask = () => {
       dispatch(createTask(task))
         .unwrap()
         .then(() => {
-          setLoading(false);
           toast.success("Task created successfully");
           setTaskData(initialTaskData);
         });
     } catch (err) {
-      setLoading(false);
       toast.error("Error in creating task");
       console.log("Error in creating task : ", err);
     } finally {
-      setLoading(false);
     }
   };
 
@@ -142,7 +139,7 @@ const CreateTask = () => {
   }, [taskId]);
 
   const handleUpdateTask = async () => {
-    setLoading(true);
+    
     try {
       const todoList = taskData.todoChecklist?.map((item) => {
         const prevTodoChecklist = currentTask?.todoChecklist || [];
@@ -162,18 +159,18 @@ const CreateTask = () => {
         .unwrap()
         .then(() => {
           toast.success("Task updated successfully");
+          setTaskData(initialTaskData)
         });
     } catch (err) {
-      setLoading(false);
       console.log("Error in updating task!", err);
       toast.error("Error in updating task");
     } finally {
-      setLoading(false);
     }
   };
 
   const handleDeleteTask = async () => {
     try {
+      
       dispatch(deleteTask(taskId)).then(() => {
         setOpenDeleteAlert(false);
         toast.success("Task deleted successfully");
@@ -182,6 +179,7 @@ const CreateTask = () => {
     } catch (err) {
       console.log("Error in deleting task : ", err);
       toast.error("Error in deleting task");
+    } finally {
     }
   };
 
@@ -196,14 +194,14 @@ const CreateTask = () => {
               </h2>
               {taskId && (
                 <button
-                  className="flex items-center gap-1.5 text-[13px] font-medium text-rose-500 bg-rose-50 rounded px-2 py-1 border-rose-100 hover:border-rose-300 cursor-pointer"
+                  className="flex items-center gap-1.5 text-[13px] font-medium text-rose-500 bg-rose-50 rounded px-2 py-1 border-rose-100 hover:bg-rose-100 hover:text-rose-600 cursor-pointer duration-300"
                   onClick={() => setOpenDeleteAlert(true)}
                 >
                   <LuTrash2 className="" /> Delete
                 </button>
               )}
             </div>
-            <div className="mt-4" >
+            <div className="mt-4">
               <label className="text-sm font-medium text-slate-600">
                 Task Title
               </label>
@@ -215,7 +213,7 @@ const CreateTask = () => {
                 onChange={(e) => handleOnChange("title", e.target.value)}
               />
             </div>
-            <div className="mt-3" >
+            <div className="mt-3">
               <label className="text-sm font-medium text-slate-600">
                 Description
               </label>
@@ -229,7 +227,7 @@ const CreateTask = () => {
             </div>
 
             <div className="grid grid-cols-12 gap-4 mt-2">
-              <div className="col-span-12 sm:col-span-4" >
+              <div className="col-span-12 sm:col-span-4">
                 <label className="text-sm font-medium text-slate-600">
                   Priority
                 </label>
@@ -241,7 +239,7 @@ const CreateTask = () => {
                 ></SelectDropdown>
               </div>
 
-              <div className="col-span-12 sm:col-span-4"  >
+              <div className="col-span-12 sm:col-span-4">
                 <label className="text-sm font-medium text-slate-600">
                   Due Date
                 </label>
@@ -268,7 +266,7 @@ const CreateTask = () => {
               </div>
             </div>
 
-            <div className="mt-3" >
+            <div className="mt-3">
               <label className="text-sm font-medium text-slate-600">
                 TODO CHECKLIST
               </label>
@@ -278,7 +276,7 @@ const CreateTask = () => {
               />
             </div>
 
-            <div className="mt-3" >
+            <div className="mt-3">
               <label className="text-sm font-medium text-slate-600">
                 Add Attachments
               </label>
@@ -295,7 +293,7 @@ const CreateTask = () => {
                 onClick={handleOnSubmit}
               >
                 {loading ? (
-                  <Loader2 className="animate-spin" />
+                  <Loader2 className="animate-spin" size={20}/>
                 ) : taskId ? (
                   "UPDATE TASK"
                 ) : (

@@ -31,7 +31,7 @@ const SelectDropdown = ({ options, value, onChange, placeholder }) => {
           : placeholder}
         <span className="ml-2">
           {isOpen ? (
-            <LuChevronDown classNarotate-180me="" />
+            <LuChevronDown  />
           ) : (
             <LuChevronDown className="" />
           )}

@@ -15,7 +15,6 @@ import { updateTodoCheckList } from "../../redux/slices/tasksSlice";
 import LoadingScreen from "../../components/ui/LoadingScreen";
 
 const ViewTaskDetails = () => {
-  
   const { id } = useParams();
   const [task, setTask] = useState(null);
   const dispatch = useDispatch();
@@ -66,17 +65,17 @@ const ViewTaskDetails = () => {
       const response = await dispatch(
         updateTodoCheckList({ taskId, todoChecklist })
       ).unwrap();
-      setUpdatingTodoId(null)
+      setUpdatingTodoId(null);
 
       if (response.status === 200) {
-        setTask(response.data?.task || task);
+        setTask(response?.task || task);
       } else {
         todoChecklist[index].completed = !todoChecklist[index].completed;
       }
     } catch (error) {
       todoChecklist[index].completed = !todoChecklist[index].completed;
     } finally {
-      setUpdatingTodoId(null)
+      setUpdatingTodoId(null);
     }
   };
 
