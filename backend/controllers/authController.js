@@ -12,7 +12,7 @@ export const registerUser = async (req, res) => {
 
         const userExist = await User.findOne({ email })
         if (userExist) {
-            return res.status(401).json({ message: "Email already exists!" })
+            return res.status(401).json({ message: "Email already exists" })
         }
 
         let role = 'member'
@@ -34,11 +34,11 @@ export const registerUser = async (req, res) => {
                 token
             })
         } else {
-            res.status(500).json({ message: "Error in creating user!" })
+            res.status(500).json({ message: "Error in creating user" })
         }
     } catch (err) {
         console.log("Error in registerUser controller : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal server error" })
     }
 }
 
@@ -47,7 +47,7 @@ export const loginUser = async (req, res) => {
         const { email, password } = req.body
 
         if (!email || !password) {
-            return res.status(401).json({ message: "All fields are required!" })
+            return res.status(401).json({ message: "All fields are required" })
         }
 
         const user = await User.findOne({ email })
@@ -72,17 +72,17 @@ export const loginUser = async (req, res) => {
         })
     } catch (err) {
         console.log("Error in loginUser controller : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal server error" })
     }
 }
 
 export const logoutUser = async (req, res) => {
     try {
         res.clearCookie('token')
-        res.status(200).json({message : "Logged out successfully!"})
+        res.status(200).json({message : "Logged out successfully"})
     } catch (err) {
         console.log("Error in logoutUser controller : ", err)
-        res.status(500).json({message : "Internal server error!"})
+        res.status(500).json({message : "Internal server error"})
     }
 }
 
@@ -90,12 +90,12 @@ export const getUserProfile = async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password')
         if (!user) {
-            return res.status(404).json({ message: "User not found!" })
+            return res.status(404).json({ message: "User not found" })
         }
         res.status(200).json(user)
     } catch (err) {
         console.log("Error in getUserProfile controller : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal server error" })
     }
 }
 
@@ -104,7 +104,7 @@ export const updateUserProfile = async (req, res) => {
 
         let user = await User.findById(req.user.id)
         if(!user) {
-            return res.status(404).json({message : "User not found!"})
+            return res.status(404).json({message : "User not found"})
         }
 
         user.name = req.body.name || user.name
@@ -122,6 +122,6 @@ export const updateUserProfile = async (req, res) => {
 
     } catch (err) {
         console.log("Error in updateUserProfile controller : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal server error" })
     }
 }

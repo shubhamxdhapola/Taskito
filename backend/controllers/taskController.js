@@ -67,8 +67,8 @@ export const getTasks = async (req, res) => {
             }
         })
     } catch (err) {
-        console.log("Error in getTasks control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        console.log("Error in getTasks controller : ", err)
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -83,8 +83,8 @@ export const getTaskById = async (req, res) => {
         res.status(200).json(task)
 
     } catch (err) {
-        console.log("Error in getTaskById control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        console.log("Error in getTaskById controller : ", err)
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -109,8 +109,8 @@ export const createTask = async (req, res) => {
         res.status(201).json({ message: "Task created successfully!", task })
 
     } catch (err) {
-        console.log("Error in createTask control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        console.log("Error in createTask controller : ", err)
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -137,8 +137,8 @@ export const updateTask = async (req, res) => {
         res.status(200).json({ message: "Task updated successfully!", updatedTask })
 
     } catch (err) {
-        console.log("Error in updateTask control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        console.log("Error in updateTask controller : ", err)
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -148,11 +148,11 @@ export const deleteTask = async (req, res) => {
         if (!task) return res.status(404).json({ message: "Task not found!" })
 
         await task.deleteOne()
-        res.status(200).json({ message: "Task deleted successfully!" })
+        res.status(200).json({ message: "Task deleted successfully" })
 
     } catch (err) {
-        console.log("Error in deleteTask control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        console.log("Error in deleteTask controller : ", err)
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -181,7 +181,7 @@ export const updateTaskStatus = async (req, res) => {
 
     } catch (err) {
         console.log("Error in updateTaskStatus control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -223,7 +223,7 @@ export const updateTaskCheckList = async (req, res) => {
 
     } catch (err) {
         console.log("Error in updateTaskCheckList control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -290,7 +290,7 @@ export const getDashboardData = async (req, res) => {
         })
     } catch (err) {
         console.log("Error in getDashboardData control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -352,6 +352,6 @@ export const getUserDashboardData = async (req, res) => {
 
     } catch (err) {
         console.log("Error in getUserDashboardData control : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal sever error" })
     }
 }

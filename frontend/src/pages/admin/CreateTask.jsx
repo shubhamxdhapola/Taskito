@@ -189,7 +189,7 @@ const CreateTask = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 mt-4">
           <div className="form-card col-span-3">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg md:text-xl font-medium text-base-200">
+              <h2 className="text-lg md:text-xl font-medium text-base-200" data-aos="fade-right">
                 {taskId ? "Update Task" : "Create Task"}
               </h2>
               {taskId && (
@@ -201,7 +201,7 @@ const CreateTask = () => {
                 </button>
               )}
             </div>
-            <div className="mt-4">
+            <div className="mt-4" data-aos="fade-left">
               <label className="text-sm font-medium text-slate-600">
                 Task Title
               </label>
@@ -213,7 +213,7 @@ const CreateTask = () => {
                 onChange={(e) => handleOnChange("title", e.target.value)}
               />
             </div>
-            <div className="mt-3">
+            <div className="mt-3" data-aos="fade-right">
               <label className="text-sm font-medium text-slate-600">
                 Description
               </label>
@@ -239,7 +239,7 @@ const CreateTask = () => {
                 ></SelectDropdown>
               </div>
 
-              <div className="col-span-12 sm:col-span-4">
+              <div className="col-span-12 sm:col-span-4" data-aos="fade-right">
                 <label className="text-sm font-medium text-slate-600">
                   Due Date
                 </label>
@@ -266,7 +266,7 @@ const CreateTask = () => {
               </div>
             </div>
 
-            <div className="mt-3">
+            <div className="mt-3" data-aos="fade-left">
               <label className="text-sm font-medium text-slate-600">
                 TODO CHECKLIST
               </label>
@@ -276,7 +276,7 @@ const CreateTask = () => {
               />
             </div>
 
-            <div className="mt-3">
+            <div className="mt-3" data-aos="fade-right">
               <label className="text-sm font-medium text-slate-600">
                 Add Attachments
               </label>

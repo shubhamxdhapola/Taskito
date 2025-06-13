@@ -19,7 +19,7 @@ export const getUsers = async (req, res) => {
         res.status(200).json(userWithTaskCounts)
     } catch (err) {
         console.log("Error in getUsers controller : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal sever error" })
     }
 }
 
@@ -27,11 +27,11 @@ export const getUserById = async (req, res) => {
     try {
         const user = await User.findById(req.params.id).select('-password')
         if(!user) {
-            return res.status(404).json({message : "User not found!"})
+            return res.status(404).json({message : "User not found"})
         }
         res.status(200).json(user)
     } catch (err) {
         console.log("Error in getUserById controller : ", err)
-        res.status(500).json({ message: "Internal server error!" })
+        res.status(500).json({ message: "Internal sever error" })
     }
 }

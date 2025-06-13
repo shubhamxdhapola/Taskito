@@ -58,10 +58,13 @@ const SignUp = () => {
   return (
     <AuthLayout>
       <div className=" h-auto flex flex-col justify-center card">
-        <h3 className=" sm:text-lg font-semibold text-black text-center sm:text-left ">
+        <h3 className="text-lg md:text-xl font-semibold text-black text-center mb-4">
+          Taskito
+        </h3>
+        <h3 className=" sm:text-lg font-semibold text-black text-center">
           Create an Account
         </h3>
-        <p className="text-sm text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center sm:text-left">
+        <p className="text-sm text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center">
           Join us today by entering your details below
         </p>
 
@@ -122,7 +125,7 @@ const SignUp = () => {
             )}
           </button>
         </form>
-        <p className="text-sm text-slate-800 mt-3 text-center sm:text-left">
+        <p className="text-sm text-slate-800 mt-4 text-center">
           Already have an account?{" "}
           <Link className="underline text-primary" to="/login">
             Login

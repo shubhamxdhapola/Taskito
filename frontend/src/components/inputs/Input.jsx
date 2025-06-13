@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 const Input = ({ value, onChange, label, placeholder, type, name }) => {
-    
+  
   const [showPassword, setShowPassword] = useState(false);
   const toggleShowPassword = () => setShowPassword(!showPassword);
 
@@ -37,8 +37,6 @@ const Input = ({ value, onChange, label, placeholder, type, name }) => {
             )}
           </>
         )}
-
-
       </div>
     </div>
   );

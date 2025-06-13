@@ -9,6 +9,7 @@ import { login } from "../../redux/slices/authSlice";
 import { Loader2 } from "lucide-react";
 
 const Login = () => {
+
   const initialFormData = {
     email: "",
     password: "",
@@ -48,8 +49,13 @@ const Login = () => {
   return (
     <AuthLayout>
       <div className="lg:w-[70%] h-auto flex flex-col justify-center mx-auto card">
-        <h3 className="text-lg md:text-xl font-semibold text-black text-center sm:text-left">Welcome Back</h3>
-        <p className="text-sm text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center sm:text-left">
+        <h3 className="text-lg md:text-xl font-semibold text-black text-center mb-4">
+          Taskito
+        </h3>
+        <h3 className="text-lg md:text-xl font-semibold text-slate-800 text-center">
+          Welcome Back
+        </h3>
+        <p className="text-sm text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center">
           Please enter your details to login
         </p>
 
@@ -62,6 +68,7 @@ const Login = () => {
             type="text"
             name="email"
           />
+
           <Input
             value={formData.password}
             onChange={handleOnChange}
@@ -73,7 +80,8 @@ const Login = () => {
 
           <button
             className={`btn-primary ${
-              loading && "!cursor-not-allowed !bg-blue-400 hover:!text-neutral-50"
+              loading &&
+              "!cursor-not-allowed !bg-blue-400 hover:!text-neutral-50"
             }`}
             type="submit"
             disabled={loading}
@@ -87,7 +95,7 @@ const Login = () => {
             )}
           </button>
         </form>
-        <p className="text-sm text-slate-800 mt-3 text-center sm:text-left">
+        <p className="text-sm text-slate-800 mt-4 text-center">
           Don't have an account?{" "}
           <Link className="underline text-primary" to="/signup">
             SignUp
