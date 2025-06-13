@@ -61,7 +61,7 @@ const SignUp = () => {
         <h3 className="text-lg md:text-xl font-semibold text-black text-center mb-4">
           Taskito
         </h3>
-        <h3 className=" sm:text-lg font-semibold text-black text-center">
+        <h3 className=" sm:text-lg font-semibold text-slate-800 text-center">
           Create an Account
         </h3>
         <p className="text-sm text-slate-700 mt-[5px] mb-8 sm:mb-6 text-center">
