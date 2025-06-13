@@ -38,7 +38,7 @@ const SideMenu = ({ activeMenu }) => {
           <img          
             src={user?.profileImageUrl || ""}
             alt="profile-image"
-            className="w-20 h-20 bg-slate-400 rounded-full"
+            className="w-20 h-20 bg-slate-400 rounded-full object-cover"
           />
         </div>
         {user?.role === "admin" && (
