@@ -80,7 +80,7 @@ const SideMenu = ({ activeMenu }) => {
         ) : (
           <>
             {" "}
-            <LuLogOut /> Logout
+            <LuLogOut className="text-xl" /> Logout
           </>
         )}
       </button>
