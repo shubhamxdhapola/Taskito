@@ -16,12 +16,12 @@ export const getTasks = async (req, res) => {
             tasks = await Task.find(filter).populate(
                 'assignedTo',
                 'name email profileImageUrl'
-            )
+            ).sort({_id : -1})
         } else {
             tasks = await Task.find({ ...filter, assignedTo: req.user._id }).populate(
                 'assignedTo',
                 'name email profileImageUrl'
-            )
+            ).sort({_id : -1})
         }
 
         // Add completed todoChecklist count to each task
