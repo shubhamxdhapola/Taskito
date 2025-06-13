@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import SideMenu from "./SideMenu";
 import { HiOutlineX } from "react-icons/hi";
-import { AlignRight, X } from "lucide-react";
+import { AlignRight, Loader2, X } from "lucide-react";
 import { LuLogOut } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authSlice";
 import toast from "react-hot-toast";
 
 const Navbar = ({ activeMenu }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.auth);
   const [openSideMenu, setOpenSideMenu] = useState(false);
 
   const navRef = useRef(null);
@@ -55,15 +56,22 @@ const Navbar = ({ activeMenu }) => {
             openSideMenu ? "left-[20px]" : "-left-90"
           }`}
         >
-          <SideMenu activeMenu={activeMenu}  />
+          <SideMenu activeMenu={activeMenu} />
         </div>
       </div>
       <div className="flex">
         <button
           className="flex items-center gap-3 text-[13px] font-medium text-gray-800 hover:text-primary bg-gray-100 hover:bg-blue-50 px-4 py-1.5 rounded-lg border border-gray-200 cursor-pointer duration-300 max-[1100px]:hidden "
           onClick={handleLogout}
+          disabled={loading}
         >
-          <LuLogOut /> Logout
+          {loading ? (
+            <Loader2 className="animate-spin" size={20} />
+          ) : (
+            <>
+              <LuLogOut /> Logout
+            </>
+          )}
         </button>
         <button
           className="block min-[1100px]:hidden text-black cursor-pointer"
