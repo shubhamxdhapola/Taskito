@@ -40,7 +40,7 @@ const TaskCard = ({
   return (
     <div
       data-aos="fade-right"
-      className="bg-white rounded-xl py-4 shadow-md shadow-gray-100 border-gray-200/50 cursor-pointer"
+      className="bg-white rounded-xl py-4 shadow-md shadow-gray-100 border border-gray-200/50 cursor-pointer"
       onClick={onClick}
     >
       <div className="flex items-end gap-3 px-4">

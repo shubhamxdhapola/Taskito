@@ -51,7 +51,7 @@ const Navbar = ({ activeMenu }) => {
         <h2 className="text-lg font-medium text-black logo">Taskito</h2>
         <div
           ref={navRef}
-          className={`fixed top-[61px] -ml-4 bg-white duration-300 ${
+          className={`fixed top-[61px] -ml-5.5 bg-white duration-300 min-[1100px]:hidden ${
             openSideMenu ? "left-[20px]" : "-left-90"
           }`}
         >

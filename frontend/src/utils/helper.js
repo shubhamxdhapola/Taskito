@@ -8,12 +8,17 @@ export const validateLoginForm = (email, password) => {
     return true;
 };
 
-export const validateSignUpForm = (name, email, password) => {
+export const validateSignUpForm = (name, email, password, adminInviteToken) => {
     if (!name.trim()) return toast.error("Full name is required")
     if (!email.trim()) return toast.error("Email is required");
     if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))
         return toast.error("Invalid email format");
     if (!password.trim()) return toast.error("Password is required");
+    if (adminInviteToken.trim()) {
+        if (adminInviteToken !== import.meta.env.VITE_ADMIN_INVITE_TOKEN) {
+            return toast.error("Invalid admin invite token")
+        }
+    }
     return true;
 };
 
