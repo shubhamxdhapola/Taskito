@@ -13,6 +13,7 @@ import LoadingScreen from "../../components/ui/LoadingScreen";
 const ManageUsers = () => {
   const dispatch = useDispatch();
   const { users, loading } = useSelector((state) => state.adminUsers);
+  console.log(users)
 
   useEffect(() => {
     dispatch(getAllUsers());

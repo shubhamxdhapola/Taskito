@@ -1,19 +1,21 @@
 const StatsCard = ({ label, count, status }) => {
   const getStatusTagColor = () => {
     switch (status) {
+      case "Assigned" :
+        return " text-orange-500 bg-gray-100 border border-gray-200";
       case "In Progress":
-        return "text-cyan-500 bg-gray-50";
+        return "text-cyan-500 bg-gray-100 border border-gray-200";
       case "Completed":
-        return "text-green-500 bg-gray-50";
+        return "text-green-500 bg-gray-100 border border-gray-200";
       default:
-        return "text-violet-500 bg-gray-50";
+        return "text-violet-500 bg-gray-50 border border-gray-200";
     }
   };
   return (
     <div
-      className={`flex-1 text-[12px] font-medium ${getStatusTagColor()} px-2 sm:px-4 py-2 rounded whitespace-nowrap`}
+      className={`text-sm  ${getStatusTagColor()} px-4 py-2 rounded whitespace-nowrap`}
     >
-      <span className="text-[12px] font-medium text-center">{count}</span> <br /> {label}
+      <span className="text-sm  text-center">{count}</span> <br /> {label}
     </div>
   );
 };

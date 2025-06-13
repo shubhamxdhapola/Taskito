@@ -8,7 +8,7 @@ const UserCard = ({ userInfo }) => {
           <img
             src={userInfo?.profileImageUrl}
             alt="Avatar"
-            className="w-12 h-12 rounded-full border-2 border-white"
+            className="w-12 h-12 rounded-full border-2 border-white object-cover"
           />
           <div className="">
             <p className="text-sm font-medium">{userInfo?.name}</p>
@@ -16,7 +16,16 @@ const UserCard = ({ userInfo }) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-3 mt-5">
+      <div className="grid grid-cols-2 gap-3 mt-5">
+        <StatsCard
+          label="Assigned"
+          count={
+            userInfo?.pendingTasks +
+              userInfo?.inProgressTasks +
+              userInfo?.completedTasks || 0
+          }
+          status="Assigned"
+        />
         <StatsCard
           label="Pending"
           count={userInfo?.pendingTasks || 0}

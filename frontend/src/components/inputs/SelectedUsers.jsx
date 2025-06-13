@@ -67,7 +67,7 @@ const SelectedUsers = ({ selectedUsers, setSelectedUsers }) => {
               <img
                 src={user.profileImageUrl}
                 alt={user.name}
-                className="w-10 h-10 rounded-full"
+                className="w-10 h-10 rounded-full object-cover"
               />
 
               <div className="flex-1">

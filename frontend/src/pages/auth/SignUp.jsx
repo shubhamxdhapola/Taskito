@@ -100,7 +100,7 @@ const SignUp = () => {
               onChange={handleOnChange}
               label="Admin Invite Token"
               placeholder="6 Digits Code"
-              type="text"
+              type="password"
               name="adminInviteToken"
             />
           </div>
