@@ -14,15 +14,23 @@
 * View personal task analytics via **Pie Chart** and **Bar Chart**
 * Access personalized member dashboard
 
+Thanks, Shubham! Based on this new feature, here's the updated section for your README's **Admin Features**, integrating this progress-tracking functionality:
+
+---
+
 ### 🔧 Admin Features:
 
-* Admin dashboard with task statistics
+* Admin dashboard with task statistics and visual analytics (charts)
 * Create, update, and delete tasks
 * Assign tasks to specific members
 * Set task priorities: Low, Medium, High
-* View task distribution using **analytics charts**
-* Manage team effectively with role-based access control
+* **Track individual member progress**:
 
+  * Total tasks assigned
+  * Tasks completed
+  * Tasks in progress
+  * Pending tasks
+    
 ---
 
 ## 🛠️ Tech Stack
